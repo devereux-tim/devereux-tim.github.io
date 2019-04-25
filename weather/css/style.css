@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(245, 241, 239);
+}
+
+h1 {
+    font-size: 40px;
+}
+
+table {
+    text-align: center;
+}
+
+#mobile-div {
+    display: none;
+}
+
+html {
+    position: relative;
+    min-width: 1000px;
+    height: 100%;
+}
+
