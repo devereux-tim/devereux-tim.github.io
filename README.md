@@ -1,2 +1,2 @@
-# devreux-tim.github.io
+# devereux-tim.github.io
 PhotonWeather Website
