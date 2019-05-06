@@ -1,21 +1,66 @@
-<head>
-    <title>Mount Nebo Weather and Climate Record</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+
+    
+    
+    
+    
+    
+<!doctype html>
+<title>Template</title>
+<style>
+  body {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "article article article"
+      "footer footer footer";
+    grid-template-rows: 80px 1fr 70px;
+    grid-template-columns: 20% 1fr 15%;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    height: 100vh;
+    margin: 0;
+  }
+
+  header,
+  footer,
+  article,
+  div {
+    padding: 1.2em;
+    background: lightblue;
+  }
+
+  #pageHeader {
+    grid-area: header;
+  }
+
+  #pageFooter {
+    grid-area: footer;
+  }
+
+  #mainArticle {
+    grid-area: article;
+  }
+
+
+  /* Stack the layout on small devices/viewports. */
+  @media all and (max-width: 575px) {
+    body {
+      grid-template-areas:
+        "header"
+        "article"
+        "footer";
+      grid-template-rows: 80px 1fr 70px 1fr 70px;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
 <body>
-    <div class="title" align="center">
-        <br>
-        <h1>&nbsp;Mount Nebo Weather and Climate Record</h1>
+            <h1>&nbsp;Mount Nebo Weather and Climate Record</h1>
         <h2>South East Queensland, Australia.</h2>
-    </div>
-
-
-    <content style="width:100%; height:100%;" align="middle"><br>
-        <table style="width:100%" align="center">
+    
+    
+    <table style="width:100%" align="center">
             <tr>
                 <td> <iframe width="100%" height="260" style="border: 1px solid #cccccc;"
                         src="https://thingspeak.com/channels/642670/widgets/24558"></iframe>
@@ -38,13 +83,8 @@
                         src="https://thingspeak.com/channels/642670/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=10080&title=Temperature+%28C%29&type=spline"></iframe>
             </tr>
         </table>
-    </content>
+  <header id="pageHeader">Header</header>
+  <article id="mainArticle">Article</article>
+  <footer id="pageFooter"><h3 align="center">By Tim Devereux 2019<h3></footer>
 
-
-</body><br>
-
-<footer>
-    <h3 align="center">By Tim Devereux 2019<h3>
-</footer><br>
-
-</html>
+</body>
