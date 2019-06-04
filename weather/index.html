@@ -1,30 +1,208 @@
-<!doctype html>
-<title>Mount Nebo Weather</title>
+<html>
+
+<head>
+    <title>Mount Nebo Weather</title>
+    <style>
+        h1 {
+            display: block;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            text-align: center;
+
+        }
+
+        h2 {
+            display: block;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+</head>
 
 <body>
-        <h1>Mount Nebo Weather Record</h1>
-        <h2>South East Queensland, Australia.</h2>
+    <h1> Mount Nebo Weather</h1>
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <script type='text/javascript'>
+        channel_id = 793952;
+        api_key = 'YUDWUDKAZAXLYZH9';
+        // get the data from thingspeak
+        $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api_key=' + api_key +
+            '&results=10',
+            function (data) {
+                jsonfile = data;
+
+                var time = jsonfile.feeds.map(function (point) {
+                    return point.created_at;
+                });;
+
+                var temp = jsonfile.feeds.map(function (point) {
+                    return point.field1;
+                });
+
+                var humid = jsonfile.feeds.map(function (point) {
+                    return point.field2;
+                });;
+
+                var pressure = jsonfile.feeds.map(function (point) {
+                    return point.field3;
+                });;
+
+                var rainfall = jsonfile.feeds.map(function (point) {
+                    return point.field4;
+                });;
+
+                var windspeed = jsonfile.feeds.map(function (point) {
+                    return point.field5;
+                });;
+
+                var gust = jsonfile.feeds.map(function (point) {
+                    return point.field6;
+                });;
+
+                var wind_direction = jsonfile.feeds.map(function (point) {
+                    return point.field7;
+                });;
 
 
+                var temp_humid_chart = temp_humid_canvas.getContext('2d');
+                var config = {
+                    type: 'line',
+                    data: {
+                        labels: time,
+                        datasets: [{
+                            label: 'Temperature',
+                            data: temp,
+                            yAxisID: "A",
+                            borderColor: "blue",
+                            fill: false,
+
+                        }, {
+                            label: 'Humidity',
+                            data: humid,
+                            yAxisID: "B",
+                            borderColor: "red",
+                            fill: false,
+
+                        }]
+                    },
+
+                    options: {
+
+                        title: {
+                            display: true,
+                            text: "Temperture & Humidity over time"
+                        },
+                        tooltips: {
+                            mode: 'label'
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true,
+                                position: "left",
+                                id: "A",
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Temperature (°C)'
+                                }
+                            }, {
+                                stacked: false,
+                                position: "right",
+                                id: "B",
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Humidity (%)'
+                                }
+
+                            }]
+                        }
+                    }
+
+                };
+
+                var temp_humid_chart = new Chart(temp_humid_chart, config);
 
 
+                var rain_chart = rain_canvas.getContext('2d');
+                var config = {
+                    type: 'line',
+                    data: {
+                        labels: time,
+                        datasets: [{
+                            label: 'Rainfall (mm)',
+                            data: rainfall,
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "Rainfall"
+                        },
 
 
+                        scales: {
+                            yAxes: [{
+                                stacked: true,
+                                position: "left",
+                                id: "A",
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Rainfall (mm)'
 
-        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
-                src="https://thingspeak.com/channels/642670/widgets/24558"></iframe>
+                                },
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                };
+
+                var rain_chart = new Chart(rain_chart, config);
+            });
+    </script>
 
 
+    <table style="width:100%">
+        <tr>
+            <th> <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                    src="https://thingspeak.com/channels/793952/widgets/76201"></iframe></th>
+            <th><iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                    src="https://thingspeak.com/channels/793952/widgets/76252"></iframe>
+            </th>
+        </tr>
+    </table>
+    <br>
+    <canvas id="temp_humid_canvas"></canvas>
+
+    <br>
 
 
+    <canvas id="rain_canvas"></canvas>
 
 
+    <br>
+    <br>
 
 
-
-
-
-        <footer id="pageFooter">
-                <h3 align="center">By Tim Devereux 2019<h3>
-        </footer>
 </body>
+
+<footer>
+    <h2>Tim Devereux - 2019</h2>
+</footer>
+
+</html>
