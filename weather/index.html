@@ -1,18 +1,31 @@
-<!doctype html>
-<title>Mount Nebo Weather</title>
+<html>
+
+<head>
+  <title>Mount Nebo Weather</title>
+
+
+</head>
 
 <body>
-        <h1>Mount Nebo Weather Record</h1>
-        <h2>South East Queensland, Australia.</h2>
-        <iframe width="100%" height="260" style="border: 1px solid #cccccc;"
-                src="https://thingspeak.com/channels/642670/widgets/24558"></iframe>
-        <iframe width="100%" height="260" style="border: 1px solid #cccccc;"
-                src="https://thingspeak.com/channels/642670/widgets/24559"></iframe>
-        <iframe width="100%" height="260" style="border: 1px solid #cccccc;"
-                src="https://thingspeak.com/channels/642670/widgets/24560"></iframe>
-        <iframe width="100%" height="260" style="border: 1px solid #cccccc;"
-                src="https://thingspeak.com/channels/642670/widgets/24561"></iframe>
-        <footer id="pageFooter">
-                <h3 align="center">By Tim Devereux 2019<h3>
-        </footer>
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+  <script>
+    var channel_id = 642670;
+    var api_key = 'BIFSAO4JAQ0N81GY';
+    var temp;
+
+    // get the data from thingspeak
+    $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feed/last.json?api_key=' + api_key, function (
+      data) {
+      temp = data.field1;
+      humid = data.field2;
+
+      if (temp && humid) {
+        document.write("Temperature: " + Math.round(temp * 100) / 100 + "<br>Humidity: " + Math.round(humid * 100) /
+          100 + " %");
+      }
+    })
+  </script>
+
 </body>
+
+</html>
