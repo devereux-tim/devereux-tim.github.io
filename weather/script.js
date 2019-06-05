@@ -1,8 +1,13 @@
  channel_id = 793952;
  api_key = 'YUDWUDKAZAXLYZH9';
- // get the data from thingspeak
+
+ $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/fields/field1/last.json', function (current_temp) {
+
+     console.log(current_temp)
+ });
+
  $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api_key=' + api_key +
-     '&results=168',
+     '&results=1008',
      function (data) {
          jsonfile = data;
 
@@ -11,7 +16,6 @@
              let date = moment(str);
              return date.format('llll');
          });
-
 
          var temp = jsonfile.feeds.map(function (point) {
              return point.field1;
@@ -43,7 +47,7 @@
 
 
          var temp_humid_chart = temp_humid_canvas.getContext('2d');
-         var config = {
+         var temp_humid_config = {
              type: 'line',
              data: {
                  labels: time,
@@ -52,15 +56,11 @@
                      data: temp,
                      yAxisID: "A",
                      fill: false,
-                     borderColor: 'blue',
+                     borderColor: 'red',
                      backgroundColor: 'transparent',
-                     pointBorderColor: 'blue',
-                     pointBackgroundColor: 'blue',
-                     pointRadius: 5,
-                     pointHoverRadius: 10,
-                     pointHitRadius: 30,
-                     pointBorderWidth: 2,
-                     pointStyle: 'rectRounded'
+                     pointBorderColor: 'red',
+                     pointBackgroundColor: 'red',
+
 
 
                  }, {
@@ -68,20 +68,25 @@
                      data: humid,
                      yAxisID: "B",
                      fill: false,
-                     borderColor: 'red',
+                     borderColor: 'blue',
                      backgroundColor: 'transparent',
                      borderDash: [5, 5],
-                     pointBorderColor: 'red',
-                     pointBackgroundColor: 'red',
-                     pointRadius: 5,
-                     pointHoverRadius: 10,
-                     pointHitRadius: 30,
-                     pointBorderWidth: 2,
+                     pointBorderColor: 'blue',
+                     pointBackgroundColor: 'blue',
+
+
 
                  }]
              },
 
              options: {
+
+
+                 elements: {
+                     point: {
+                         radius: 0
+                     }
+                 },
                  responsive: true,
                  title: {
                      display: true,
@@ -91,6 +96,7 @@
                  tooltips: {
                      mode: 'label'
                  },
+
                  scales: {
                      xAxes: [{
                          stacked: true
@@ -102,7 +108,8 @@
                          scaleLabel: {
                              display: true,
                              labelString: 'Temperature (°C)'
-                         }
+                         },
+
                      }, {
                          stacked: false,
                          position: "right",
@@ -110,7 +117,13 @@
                          scaleLabel: {
                              display: true,
                              labelString: 'Humidity (%)'
-                         }
+                         },
+                         ticks: {
+                             beginAtZero: true,
+                             steps: 10,
+                             stepValue: 5,
+                             max: 100
+                         },
 
                      }]
                  }
@@ -118,11 +131,11 @@
 
          };
 
-         var temp_humid_chart = new Chart(temp_humid_chart, config);
+         var temp_humid_chart = new Chart(temp_humid_chart, temp_humid_config);
 
 
          var rain_chart = rain_canvas.getContext('2d');
-         var config = {
+         var rain_config = {
              type: 'line',
              data: {
                  labels: time,
@@ -135,23 +148,26 @@
                      backgroundColor: 'transparent',
                      pointBorderColor: 'green',
                      pointBackgroundColor: 'green',
-                     pointRadius: 5,
-                     pointHoverRadius: 10,
-                     pointHitRadius: 30,
-                     pointBorderWidth: 2,
-                     pointStyle: 'rectRounded'
-
-
                  }]
              },
              options: {
+
+
+
+                 elements: {
+                     point: {
+                         radius: 0
+                     }
+                 },
+
+
+
                  responsive: true,
                  title: {
                      display: true,
                      text: "Rainfall",
                      fontSize: 24,
                  },
-
 
                  scales: {
                      yAxes: [{
@@ -171,5 +187,5 @@
              }
          };
 
-         var rain_chart = new Chart(rain_chart, config);
+         var rain_chart = new Chart(rain_chart, rain_config);
      });
