@@ -1,19 +1,31 @@
 channel_id = 793952;
 api_key = 'YUDWUDKAZAXLYZH9';
 
+
 $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds/last.json', function (data) {
     console.log(data);
     var current_temp = Math.round(data.field1 * 10) / 10;
     var current_humid = Math.round(data.field2 * 10) / 10;
     var current_pressure = Math.round(data.field3 * 10) / 10;
-    var current_windspeed = Math.round(data.field4 * 10) / 10;
-    var current_rainfall = Math.round(data.field5 * 10) / 10;
+    var current_rainfall = Math.round(data.field4 * 10) / 10;
+    var current_windspeed = Math.round(data.field5 * 10) / 10;
+
+    var current_soil_moisture = 0;
+    var current_sunlight = 0;
+
+
+
+    var last_read = moment(data.created_at).format('LT');
+
 
     $('temp').html(current_temp);
     $('humid').html(current_humid);
     $('press').html(current_pressure);
     $('ws').html(current_windspeed);
     $('rf').html(current_rainfall);
+    $('sm').html(current_soil_moisture);
+    $('si').html(current_sunlight);
+    $('time').html(last_read);
 });
 
 $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api_key=' + api_key +
@@ -82,8 +94,8 @@ $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api
                     pointHoverRadius: 5,
                 }]
             },
-
             options: {
+                animation: false,
                 elements: {
                     point: {
                         radius: 0,
@@ -93,7 +105,8 @@ $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api
                 title: {
                     display: true,
                     text: "Temperature & Humidity",
-                    fontSize: 24,
+                    fontSize: 14,
+                    fontColor: 'black',
                 },
                 tooltips: {
                     mode: 'label'
@@ -150,6 +163,7 @@ $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api
                 }]
             },
             options: {
+                animation: false,
                 elements: {
                     point: {
                         radius: 0
@@ -159,7 +173,8 @@ $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api
                 title: {
                     display: true,
                     text: "Rainfall",
-                    fontSize: 24,
+                    fontSize: 14,
+                    fontColor: 'black',
                 },
                 scales: {
                     yAxes: [{

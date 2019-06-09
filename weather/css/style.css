@@ -1,5 +1,13 @@
-div.content {
-    padding: 25px 50px 75px 100px;
+div.current {
+    padding: 25px 25px;
+}
+
+div.past {
+    padding: 25px 25px;
+}
+
+body {
+    background-color: whitesmoke;
 }
 
 table,
@@ -12,9 +20,35 @@ th {
 table {
     border-collapse: collapse;
     width: 100%;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
 }
 
 th,
 td {
     padding: 15px;
+}
+
+h1 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    text-align: center
+}
+
+
+h2 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
 }

@@ -8,8 +8,9 @@
 </head>
 
 <body>
-    <div class="content">
-        <h2>Current Readings</h2>
+    <div class="current">
+        <h1>Garden Microclimate Monitor</h1>
+        <h2>Current Readings - Last read at <time></time></h2>
         <table style="width:100%">
             <tr>
                 <th>Temperature</th>
@@ -18,6 +19,7 @@
                 <th>Windspeed</th>
                 <th>Rainfall</th>
                 <th>Soil Mositure</th>
+                <th>Solar Irradiance</th>
             </tr>
             <tr>
                 <td>
@@ -36,14 +38,18 @@
                     <rf></rf> mm
                 </td>
                 <td>
-                    <sm></sm> 0 %
+                    <sm></sm> %
+                </td>
+
+                <td>
+                    <si></si> W/m<sup>2</sup>
                 </td>
             </tr>
         </table>
+    </div>
+    <div class="past">
         <h2> Past Readings</h2>
-        <br>
         <canvas id="temp_humid_canvas"></canvas>
-        <br>
         <canvas id="rain_canvas"></canvas>
     </div>
 </body>
