@@ -1,13 +1,29 @@
+div.content {
+    background-color: whitesmoke;
+    padding: 20px 20px 20px 20px;
+
+}
+
 div.current {
-    padding: 25px 25px;
+    padding: 10px 10px 10px 10px;
 }
 
 div.past {
-    padding: 25px 25px;
+    padding: 10px 10px 10px 10px;
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: white;
+}
+
+.temp_humid_canvas {
+    position: center;
+
+}
+
+.rain_canvas {
+    position: center;
+
 }
 
 table,
@@ -21,7 +37,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     font-style: normal;
     font-variant: normal;
     font-weight: 500;
@@ -35,12 +51,14 @@ td {
 
 h1 {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
     line-height: 26.4px;
-    text-align: center
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+
 }
 
 

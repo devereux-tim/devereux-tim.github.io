@@ -1,5 +1,5 @@
 <head>
-    <title>Mount Nebo Weather</title>
+    <title>Garden Micoclimate Monitor</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
@@ -8,49 +8,52 @@
 </head>
 
 <body>
-    <div class="current">
+    <div class="content">
         <h1>Garden Microclimate Monitor</h1>
-        <h2>Current Readings - Last read at <time></time></h2>
-        <table style="width:100%">
-            <tr>
-                <th>Temperature</th>
-                <th>Humidity</th>
-                <th>Pressure</th>
-                <th>Windspeed</th>
-                <th>Rainfall</th>
-                <th>Soil Mositure</th>
-                <th>Solar Irradiance</th>
-            </tr>
-            <tr>
-                <td>
-                    <temp></temp> °C
-                </td>
-                <td>
-                    <humid></humid> %
-                </td>
-                <td>
-                    <press></press> Pa
-                </td>
-                <td>
-                    <ws></ws> km/h
-                </td>
-                <td>
-                    <rf></rf> mm
-                </td>
-                <td>
-                    <sm></sm> %
-                </td>
+        <div class="current">
+            <h2>Current Readings - Last read at <time></time></h2>
+            <table style="width:100%">
+                <tr>
+                    <th>Temperature</th>
+                    <th>Humidity</th>
+                    <th>Pressure</th>
+                    <th>Windspeed</th>
+                    <th>Rainfall</th>
+                    <th>Soil Mositure</th>
+                    <th>Solar Irradiance</th>
+                </tr>
+                <tr>
+                    <td>
+                        <temp></temp> °C
+                    </td>
+                    <td>
+                        <humid></humid> %
+                    </td>
+                    <td>
+                        <press></press> Pa
+                    </td>
+                    <td>
+                        <ws></ws> km/h
+                    </td>
+                    <td>
+                        <rf></rf> mm
+                    </td>
+                    <td>
+                        <sm></sm> %
+                    </td>
 
-                <td>
-                    <si></si> W/m<sup>2</sup>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="past">
-        <h2> Past Readings</h2>
-        <canvas id="temp_humid_canvas"></canvas>
-        <canvas id="rain_canvas"></canvas>
+                    <td>
+                        <si></si> W/m<sup>2</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="past">
+            <h2> Past Readings</h2>
+            <canvas id="temp_humid_canvas"></canvas>
+            <canvas id="rain_canvas"></canvas>
+            <canvas id="solar_canvas"></canvas>
+        </div>
     </div>
 </body>
 <script src="script.js"></script>
