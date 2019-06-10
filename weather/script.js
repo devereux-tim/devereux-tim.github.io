@@ -112,7 +112,11 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
-                            stacked: true
+                            stacked: true,
+                            ticks: {
+                                fontSize: 13,
+
+                            },
                         }],
                         yAxes: [{
                             stacked: true,
@@ -120,7 +124,8 @@ function draw_content() {
                             id: "A",
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Temperature (°C)'
+                                labelString: 'Temperature (°C)',
+                                fontSize: 18,
                             },
 
                         }, {
@@ -129,7 +134,8 @@ function draw_content() {
                             id: "B",
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Humidity (%)'
+                                labelString: 'Humidity (%)',
+                                fontSize: 18,
                             },
                             ticks: {
                                 beginAtZero: true,
@@ -140,6 +146,12 @@ function draw_content() {
                             },
 
                         }]
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontSize: 18,
+                        }
                     }
                 }
             };
@@ -176,19 +188,34 @@ function draw_content() {
                         fontColor: 'black',
                     },
                     scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                fontSize: 13,
+
+                            },
+                        }],
                         yAxes: [{
                             stacked: true,
                             position: "left",
                             id: "A",
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Rain (mm)'
+                                labelString: 'Rain (mm)',
+                                fontSize: 18,
+
                             },
                             ticks: {
                                 beginAtZero: true,
                                 autoSkip: true,
                             }
                         }]
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontSize: 18,
+                        }
                     }
                 }
             };
@@ -226,19 +253,33 @@ function draw_content() {
                         fontColor: 'black',
                     },
                     scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                fontSize: 13,
+
+                            },
+                        }],
                         yAxes: [{
                             stacked: true,
                             position: "left",
                             id: "A",
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Solar Irradiance (W/m\u00B2)'
+                                labelString: 'Solar Irradiance (W/m\u00B2)',
+                                fontSize: 18,
                             },
                             ticks: {
                                 beginAtZero: true,
                                 autoSkip: true,
                             }
                         }]
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontSize: 18,
+                        }
                     }
                 }
             };
