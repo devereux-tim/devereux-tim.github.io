@@ -112,10 +112,10 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
+                            type: "time",
                             stacked: true,
                             ticks: {
                                 fontSize: 13,
-
                             },
                         }],
                         yAxes: [{
@@ -189,6 +189,7 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
+                            type: "time",
                             stacked: true,
                             ticks: {
                                 fontSize: 13,
@@ -254,6 +255,7 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
+                            type: "time",
                             stacked: true,
                             ticks: {
                                 fontSize: 13,
