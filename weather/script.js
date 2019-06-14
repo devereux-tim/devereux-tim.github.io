@@ -1,14 +1,14 @@
 draw_content();
 
 $(document).ready(function (e) {
-    var refresher = setInterval("draw_content();", 10000); // 30 seconds
+    var refresher = setInterval("draw_content();", 60000); // 30 seconds
 })
 
 function draw_content() {
     channel_id = 793952;
     api_key = 'YUDWUDKAZAXLYZH9';
     $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds/last.json', function (data) {
-        //console.log(data);
+        console.log(data);
         var current_temp = Math.round(data.field1 * 10) / 10;
         var current_humid = Math.round(data.field2 * 10) / 10;
         var current_pressure = Math.round(data.field3 * 10) / 10;
@@ -18,18 +18,19 @@ function draw_content() {
         var current_sunlight = 0;
         var last_read = moment(data.created_at).format('LT');
 
-        $('temp').html(current_temp);
-        $('humid').html(current_humid);
-        $('press').html(current_pressure);
-        $('ws').html(current_windspeed);
-        $('rf').html(current_rainfall);
-        $('sm').html(current_soil_moisture);
-        $('si').html(current_sunlight);
-        $('time').html(last_read);
+
+        document.getElementById('temp').textContent = current_temp;
+        document.getElementById('humid').textContent = current_humid;
+        document.getElementById('press').textContent = current_pressure;
+        document.getElementById('ws').textContent = current_windspeed;
+        document.getElementById('rf').textContent = current_rainfall;
+        document.getElementById('sm').textContent = current_soil_moisture;
+        document.getElementById('si').textContent = current_sunlight;
+        document.getElementById('time').textContent = last_read;
     });
 
     $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api_key=' + api_key +
-        '&results=1008',
+        '&results=43800',
         function (data) {
             //console.log(data);
             var time = data.feeds.map(function (point) {
@@ -66,6 +67,8 @@ function draw_content() {
                 return point.field7;
             });;
 
+            var soil_moisture = 0;
+
             var temp_humid_chart = temp_humid_canvas.getContext('2d');
             var temp_humid_config = {
                 type: 'line',
@@ -86,10 +89,10 @@ function draw_content() {
                         data: humid,
                         yAxisID: "B",
                         fill: false,
-                        borderColor: 'green',
+                        borderColor: 'orange',
                         backgroundColor: 'transparent',
-                        pointBorderColor: 'green',
-                        pointBackgroundColor: 'green',
+                        pointBorderColor: 'orange',
+                        pointBackgroundColor: 'orange',
                         pointHoverRadius: 5,
                     }]
                 },
@@ -112,10 +115,14 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
-                            type: "time",
                             stacked: true,
                             ticks: {
                                 fontSize: 13,
+
+                            },
+                            type: 'time',
+                            time: {
+                                //unit: 'day'
                             },
                         }],
                         yAxes: [{
@@ -157,6 +164,103 @@ function draw_content() {
             };
             var temp_humid_chart = new Chart(temp_humid_chart, temp_humid_config);
 
+
+            var rain_soil_chart = rain_soil_canvas.getContext('2d');
+            var rain_soil_config = {
+                type: 'line',
+                data: {
+                    labels: time,
+                    datasets: [{
+                        label: 'Rain',
+                        data: rainfall,
+                        yAxisID: "A",
+                        fill: false,
+                        borderColor: 'blue',
+                        backgroundColor: 'transparent',
+                        pointBorderColor: 'blue',
+                        pointBackgroundColor: 'blue',
+                        pointHoverRadius: 5,
+                    }, {
+                        label: 'Soil Moisture',
+                        data: soil_moisture,
+                        yAxisID: "B",
+                        fill: false,
+                        borderColor: 'green',
+                        backgroundColor: 'transparent',
+                        pointBorderColor: 'green',
+                        pointBackgroundColor: 'green',
+                        pointHoverRadius: 5,
+                    }]
+                },
+                options: {
+                    animation: false,
+                    elements: {
+                        point: {
+                            radius: 0,
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: false,
+                        text: "Rainfall & Soil Moisture",
+                        fontSize: 14,
+                        fontColor: 'black',
+                    },
+                    tooltips: {
+                        mode: 'label'
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                fontSize: 13,
+
+                            },
+                            type: 'time',
+                            time: {
+                                //unit: 'day'
+                            },
+                        }],
+                        yAxes: [{
+                            stacked: true,
+                            position: "left",
+                            id: "A",
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Rain (mm)',
+                                fontSize: 18,
+                            },
+
+                        }, {
+                            stacked: false,
+                            position: "right",
+                            id: "B",
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Soil Moisture (%)',
+                                fontSize: 18,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                steps: 10,
+                                stepValue: 5,
+                                max: 100,
+                                autoSkip: true,
+                            },
+
+                        }]
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontSize: 18,
+                        }
+                    }
+                }
+            };
+            var rain_soil_chart = new Chart(rain_soil_chart, rain_soil_config);
+
+            /*
             var rain_chart = rain_canvas.getContext('2d');
             var rain_config = {
                 type: 'line',
@@ -189,11 +293,14 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
-                            type: "time",
                             stacked: true,
                             ticks: {
                                 fontSize: 13,
 
+                            },
+                            type: 'time',
+                            time: {
+                                //unit: 'day'
                             },
                         }],
                         yAxes: [{
@@ -221,7 +328,7 @@ function draw_content() {
                 }
             };
             var rain_chart = new Chart(rain_chart, rain_config);
-
+*/
 
             var solar_chart = solar_canvas.getContext('2d');
             var solar_config = {
@@ -230,7 +337,7 @@ function draw_content() {
                     labels: time,
                     datasets: [{
                         label: 'Sunlight',
-                        data: rainfall, //change this
+                        data: 0, //change this
                         backgroundColor: 'transparent',
                         fill: false,
                         borderColor: 'yellow',
@@ -255,11 +362,13 @@ function draw_content() {
                     },
                     scales: {
                         xAxes: [{
-                            type: "time",
                             stacked: true,
                             ticks: {
                                 fontSize: 13,
-
+                            },
+                            type: 'time',
+                            time: {
+                                //  unit: 'day'
                             },
                         }],
                         yAxes: [{
@@ -286,6 +395,71 @@ function draw_content() {
                 }
             };
             var solar_chart = new Chart(solar_chart, solar_config);
-        });
 
+            var wind_chart = wind_canvas.getContext('2d');
+            var wind_config = {
+                type: 'line',
+                data: {
+                    labels: time,
+                    datasets: [{
+                        label: 'Wind Speed',
+                        data: windspeed, //change this
+                        backgroundColor: 'transparent',
+                        fill: false,
+                        borderColor: 'lightblue',
+                        backgroundColor: 'transparent',
+                        pointBorderColor: 'lightblue',
+                        pointBackgroundColor: 'lightblue',
+                    }]
+                },
+                options: {
+                    animation: false,
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: false,
+                        text: "Wind Speed",
+                        fontSize: 14,
+                        fontColor: 'black',
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                fontSize: 13,
+                            },
+                            type: 'time',
+                            time: {
+                                // unit: 'hour'
+                            },
+                        }],
+                        yAxes: [{
+                            stacked: true,
+                            position: "left",
+                            id: "A",
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Wind Speed (km/h)',
+                                fontSize: 18,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                autoSkip: true,
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontSize: 18,
+                        }
+                    }
+                }
+            };
+            var wind_chart = new Chart(wind_chart, wind_config);
+        });
 }

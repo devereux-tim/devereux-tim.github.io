@@ -10,14 +10,14 @@
 
 <div class="header">
     <img src="/images/weather_monitor.jpg" alt="logo">
-    <h1>Garden Microclimate Monitor</h1>
+    <h1>Garden Microclimate Monitor<span id="uptime"></span></h1>
 </div>
 
 <body>
     <div class="content">
 
         <div class="current">
-            <h2>Current Readings - Last read at <time></time></h2>
+            <h2>Current Readings - Last read at <span id="time"></span> </h2>
             <table style="width:100%">
                 <tr>
                     <th>Temperature</th>
@@ -30,26 +30,26 @@
                 </tr>
                 <tr>
                     <td>
-                        <temp></temp> °C
+                        <span id="temp"></span> &deg;C
                     </td>
                     <td>
-                        <humid></humid> %
+                        <span id="humid"></span> %
                     </td>
                     <td>
-                        <press></press> Pa
+                        <span id="press"></span> Pa
                     </td>
                     <td>
-                        <ws></ws> km/h
+                        <span id="ws"></span>km/h
                     </td>
                     <td>
-                        <rf></rf> mm
+                        <span id="rf"></span> mm
                     </td>
                     <td>
-                        <sm></sm> %
+                        <span id="sm"></span> %
                     </td>
 
                     <td>
-                        <si></si> W/m<sup>2</sup>
+                        <span id="si"></span> W/m<sup>2</sup>
                     </td>
                 </tr>
             </table>
@@ -57,8 +57,10 @@
         <div class="past">
             <h2> Past Readings</h2>
             <canvas id="temp_humid_canvas"></canvas>
-            <canvas id="rain_canvas"></canvas>
+            <canvas id="rain_soil_canvas"></canvas>
             <canvas id="solar_canvas"></canvas>
+            <canvas id="wind_canvas"></canvas>
+
         </div>
     </div>
 </body>
