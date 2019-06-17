@@ -25,7 +25,7 @@ function draw_content() {
         document.getElementById('ws').textContent = current_windspeed;
         document.getElementById('rf').textContent = current_rainfall;
         document.getElementById('sm').textContent = current_soil_moisture;
-        document.getElementById('si').textContent = current_sunlight;
+        //  document.getElementById('si').textContent = current_sunlight;
         document.getElementById('time').textContent = last_read;
     });
 
@@ -63,9 +63,6 @@ function draw_content() {
                 total_rainfall = Math.round(sum * 10) / 10;
             }
             document.getElementById('rf').textContent = total_rainfall;
-            console.log(data);
-            console.log(total_rainfall);
-            console.log(rainfall);
 
             var windspeed = data.feeds.map(function (point) {
                 return point.field5;

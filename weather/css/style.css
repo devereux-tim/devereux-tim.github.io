@@ -7,18 +7,18 @@
 .header h1 {
     position: relative;
     height: 150px;
-    line-height: 150px;
+    line-height: 170px;
     font-size: 36;
 }
 
 .header {
-    background-color: lightgray;
+    background-color: #eeeeee;
     height: 200px;
 
 }
 
 div.content {
-    background-color: whitesmoke;
+    background-color: #F7F7FA;
 }
 
 div.current {
@@ -30,7 +30,7 @@ div.past {
 }
 
 body {
-    background-color: white;
+    background-color: #F7F7FA;
 }
 
 .temp_humid_canvas {
@@ -46,7 +46,7 @@ body {
 table,
 td,
 th {
-    border: 1px solid darkgrey;
+    border: 1px solid #ddd;
     text-align: left;
 }
 
@@ -62,7 +62,7 @@ table {
 }
 
 th {
-    background-color: #ddd;
+    background-color: #eeeeee;
     text-align: center;
 }
 
