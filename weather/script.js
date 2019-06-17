@@ -1,14 +1,14 @@
 draw_content();
 
 $(document).ready(function (e) {
-    var refresher = setInterval("draw_content();", 60000); // 30 seconds
+    var refresher = setInterval("draw_content();", 60000); // 60 seconds
 })
 
 function draw_content() {
     channel_id = 793952;
     api_key = 'YUDWUDKAZAXLYZH9';
     $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds/last.json', function (data) {
-        console.log(data);
+        //console.log(data);
         var current_temp = Math.round(data.field1 * 10) / 10;
         var current_humid = Math.round(data.field2 * 10) / 10;
         var current_pressure = Math.round(data.field3 * 10) / 10;
@@ -30,7 +30,7 @@ function draw_content() {
     });
 
     $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api_key=' + api_key +
-        '&results=43800',
+        '&results=10080',
         function (data) {
             //console.log(data);
             var time = data.feeds.map(function (point) {
@@ -54,6 +54,18 @@ function draw_content() {
             var rainfall = data.feeds.map(function (point) {
                 return point.field4;
             });;
+
+
+
+            var sum = 0;
+            for (var index = 0; index < 1440; index++) {
+                sum += parseFloat(rainfall[index]);
+                total_rainfall = Math.round(sum * 10) / 10;
+            }
+            document.getElementById('rf').textContent = total_rainfall;
+            console.log(data);
+            console.log(total_rainfall);
+            console.log(rainfall);
 
             var windspeed = data.feeds.map(function (point) {
                 return point.field5;
@@ -328,7 +340,7 @@ function draw_content() {
                 }
             };
             var rain_chart = new Chart(rain_chart, rain_config);
-*/
+
 
             var solar_chart = solar_canvas.getContext('2d');
             var solar_config = {
@@ -395,7 +407,7 @@ function draw_content() {
                 }
             };
             var solar_chart = new Chart(solar_chart, solar_config);
-
+*/
             var wind_chart = wind_canvas.getContext('2d');
             var wind_config = {
                 type: 'line',
