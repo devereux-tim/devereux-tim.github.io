@@ -24,7 +24,7 @@ function draw_content() {
         document.getElementById('press').textContent = current_pressure;
         document.getElementById('ws').textContent = current_windspeed;
         document.getElementById('rf').textContent = current_rainfall;
-        document.getElementById('sm').textContent = current_soil_moisture;
+        //document.getElementById('sm').textContent = current_soil_moisture;
         //  document.getElementById('si').textContent = current_sunlight;
         document.getElementById('time').textContent = last_read;
     });
