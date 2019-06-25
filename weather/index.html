@@ -1,66 +1,49 @@
 <head>
-    <title>Garden Micoclimate Monitor</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src='https://momentjs.com/downloads/moment.min.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+  <title>Garden Micoclimate Monitor</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="https://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
 </head>
 
 <div class="header">
-    <img src="/images/weather_monitor.jpg" alt="logo">
-    <h1>Garden Microclimate Monitor<span id="uptime"></span></h1>
+  <img src="/images/weather_monitor.jpg" alt="logo" />
+  <h1>Garden Microclimate Monitor<span id="uptime"></span></h1>
 </div>
 
 <body>
-    <div class="content">
-
-        <div class="current">
-            <h2>Current Readings - Last read at <span id="time"></span> </h2>
-            <table style="width:100%">
-                <tr>
-                    <th>Temperature</th>
-                    <th>Humidity</th>
-                    <th>Pressure</th>
-                    <th>Windspeed</th>
-                    <th>Rainfall (24hr)</th>
-                    <!-- <th>Soil Mositure</th> -->
-                    <!-- <th>Sunlight</th> -->
-                </tr>
-                <tr>
-                    <td>
-                        <span id="temp"></span> &deg;C
-                    </td>
-                    <td>
-                        <span id="humid"></span> %
-                    </td>
-                    <td>
-                        <span id="press"></span> Pa
-                    </td>
-                    <td>
-                        <span id="ws"></span>km/h
-                    </td>
-                    <td>
-                        <span id="rf"></span> mm
-                    </td>
-                    <!-- <td>
-                        <span id="sm"></span> %
-                    </td> -->
-
-                    <!--    <td>
-                       <span id="si"></span> W/m<sup>2</sup> 
-                    </td>-->
-                </tr>
-            </table>
-        </div>
-        <div class="past">
-            <h2> Past Readings</h2>
-            <canvas id="temp_humid_canvas"></canvas>
-            <canvas id="rain_canvas"></canvas>
-            <canvas id="wind_canvas"></canvas>
-
-        </div>
+  <div class="content">
+    <div class="current">
+      <h2>Current Readings - Last read at <span id="time"></span></h2>
+      <table style="width:100%">
+        <tr>
+          <th>Temperature</th>
+          <th>Humidity</th>
+          <th>Pressure</th>
+          <th>Windspeed</th>
+          <th>Wind Direction</th>
+          <th>Rainfall (24hr)</th>
+        </tr>
+        <tr>
+          <td><span id="temp"></span> &deg;C</td>
+          <td><span id="humid"></span> %</td>
+          <td><span id="press"></span> Pa</td>
+          <td><span id="ws"></span>km/h</td>
+          <td>
+            <span id="wd"></span>
+          </td>
+          <td><span id="rf"></span> mm</td>
+        </tr>
+      </table>
     </div>
+    <div class="past">
+      <h2>Past Readings</h2>
+      <canvas id="temp_humid_canvas"></canvas>
+      <canvas id="rain_canvas"></canvas>
+      <canvas id="wind_canvas"></canvas>
+    </div>
+  </div>
 </body>
 <script src="script.js"></script>
