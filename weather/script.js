@@ -32,9 +32,9 @@ function draw_content() {
     });
 
     $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feeds.json?api_key=' + api_key +
-        '&results=168',
+        '&results=24',
         function (data) {
-            //console.log(data);
+            console.log(data);
             var time = data.feeds.map(function (point) {
                 let str = point.created_at;
                 let date = moment(str);
@@ -99,7 +99,7 @@ function draw_content() {
                     animation: false,
                     elements: {
                         point: {
-                            radius: 0,
+                            radius: 5,
                         }
                     },
                     responsive: true,
@@ -183,7 +183,7 @@ function draw_content() {
                     animation: false,
                     elements: {
                         point: {
-                            radius: 0
+                            radius: 5
                         }
                     },
                     responsive: true,
@@ -250,7 +250,7 @@ function draw_content() {
                     animation: false,
                     elements: {
                         point: {
-                            radius: 0
+                            radius: 5
                         }
                     },
                     responsive: true,
