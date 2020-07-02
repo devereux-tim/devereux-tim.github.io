@@ -46,9 +46,10 @@ body {
   /*TAGLINE UNDER NAME*/
   font-weight: 400;
   font-size: 2em;
-  color: white;
+  color: black;
   text-align: center;
   padding-top: 30vh;
+  text-shadow: white 0px 0px 10px;
 }
 
 .jumbotron-text h1 {
