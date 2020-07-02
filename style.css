@@ -49,7 +49,7 @@ body {
   color: black;
   text-align: center;
   padding-top: 30vh;
-  text-shadow: white 0px 0px 10px;
+  background:white; /*background color*/
 }
 
 .jumbotron-text h1 {
