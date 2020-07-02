@@ -37,7 +37,7 @@ body {
   height: 100vh; /*height to 100% of view height*/
   background:rgb(41, 57, 62); /*background color*/
   margin-bottom: 0; /*no bottom margin*/
-
+  background-image: url("images/400M_Points.png");
   display: flex;
   flex-direction: column;
 }
