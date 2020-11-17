@@ -1,221 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
+  <!-- Page setup -->
   <meta charset="utf-8">
-  <title>Tim Devereux</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Your title here</title>
+  <meta name="description" content="A brief description of your site for search engines">
+  <meta name="author" content="Information about the author here">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="icon" type="image/x-icon" href="images/favicon.png">
+
+  <!-- Stylesheets -->
+  <!-- Reset default styles and add support for google fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+    type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+
+  <!-- Custom styles -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <!-- Want to add Bootstrap? -->
+  <!-- Visit: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+
 </head>
 
 <body>
 
-  <!-- BEGIN NAVBAR -->
-  <div class="navbar">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <!-- END NAVBAR -->
+  <header id="header">
+    <!-- <img src="logo.png"> -->
+    <h1>Tim Devereux</h1>
+    <h4>Environmental remote sensing and geospatial data analyst.</h4>
 
-  <div class="container">
 
-    <!-- HEADER -->
-    <div class="jumbotron">
-      <div class="jumbotron-text">
-        <h1>Tim Devereux</h1>
-        <p1>Remote sensing, tree and computing enthusiast.</h1>
+
+    <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
+    <ul class="main-menu">
+      <li><a href="#home">home</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </header>
+
+  <div id="container">
+    <div class="inner">
+      <div id="content">
+
+        <div id="home" class="content-region hide">
+
+
+        <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+          <b>
+            <h2>Education</h2>
+          </b>
+          <h4>Queensland University of Technology</h4>
+          <h5>Bachelor of Science (Honours) | 2020 - 2020</h5>
+          <h5>Bachelor of Science / Bachelor of Information Technology | 2015 - 2019</h5>
+        </div>
+
+        <br>
+
+        <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+
+          <b>
+            <h2>Projects</h2>
+          </b>
+
+
+
+          <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+
+
+
+          <b>
+            <h4>Remote Sensing of Vegetation Structure with Orbital Lidar</h4>
+          </b>
+          <img src="/images/gedi.png" style="width:450px;height:300px;"> 
+          <p>My honours research is centred on testing the efficacy of measuring vegetation structural metrics using novel orbital LiDAR waveforms and ultimately developing automated workflows to do so at massive scales. Lidar derived measurements are processed and compared with Queensland Government BioCondition assessment data in a range of regional ecosystems over the entire state using high performance computing. This research was successful in securing a competitive scholarship from the Queensland Resource Council's mine site rehabilitation fund.</p>
+          <a href="https://www.dropbox.com/s/wxjbp2k45yslgrr/Large%20Scale%20Assessment%20of%20Canopy%20Height%20in%20Queensland%20Regional%20Ecosystems%20using%20Orbital%20Lidar.pdf?dl=0">Link to Thesis</a> <br>
+          <a href="https://github.com/devereux-tim/gedi_veg_metrics">Github Repo</a>
+        </div>
+
+
+
+
+        <br>
+        <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+
+
+
+        <b>
+          <h4>Automatic individual tree extraction from terrestrial LiDAR point clouds.</h4>
+        </b>
+        <img src="/images/treeseg.png" style="width:450px;height:300px;"> 
+        <p>This  research  project  involved  the  testing  of  new  tree  extraction  algorithms  on  terrestrial  LiDAR point clouds obtained in two structurally contrasting forest plots.  I was able to achieve segmentationof 81% of trees present and also improved efficiency of the software by implementing parallelisation.The results generated from this study help to define the limitations of a novel tree extraction algorithmwithin varying forest types in the Australian setting.</p>
+        <a href="https://drive.google.com/file/d/1lCoFDpzEkaY8NMO526zgaXmbSJsLcx_l/view?usp=sharing">Link to Manuscript</a> <br>
       </div>
-      <div class="jumbotron-social">
-        <ul class="ul-social">
-          <li class="li-social-links">
-            <a class="social" href="https://github.com/tim-devereux" target="_blank"><i class="fa fa-github"
-                aria-hidden="true"></i></a>
-          </li>
-          <li class="li-social-links">
-            <a class="social" href="https://www.linkedin.com/in/timothy-devereux/" target="_blank"><i class="fa fa-linkedin"
-                aria-hidden="true"></i></a>
-          </li>
-          <li class="li-social-links">
-            <a class="social" href="https://www.twitter.com/devereux_tim/" target="_blank"><i class="fa fa-twitter"
-                aria-hidden="true"></i></a>
-          </li>
-        </ul>
+
+
+      <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+
+        <b>
+          <h4>Weather Monitor</h4>
+        </b>
+        <img src="/images/weather_monitor.jpg" style="width:250px;height:250px;" ALIGN=”left”  >
+        <p>Weather monitor linked to a microcontroller which uploads data to Thinkspeak, a free IOT platfrom
+          provided by MathWorks. Temperature, humidity, windspeed, rainfall and baromatric pressure are ploted and displayed on a simple
+          webpage.</p>
+        <a href="/weather/">Link to Project</a> <br>
+        <a href="https://github.com/devereux-tim/weather_monitor">Github Repo</a>
       </div>
-      <div id="down-arrow">
-        <span><a href="#about"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></span>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
       </div>
-    </div>
-    <!-- END HEADER -->
 
 
 
-    <!-- BEGIN ABOUT -->
-    <div class="row white box-shadow">
-      <div class="side-content"></div>
-      <div class="main-content">
-        <div class="content-header">
-          <a class="anchor" name="about"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="about" class="content-region hide">
           <h2>About</h2>
+          <p>
+            Sed tempus urna et pharetra pharetra massa massa ultricies. Porttitor rhoncus dolor purus non enim
+            praesent. Id aliquet risus feugiat in ante metus dictum.
+          </p>
         </div>
-        <div class="content-body">
-          <p>I am currently finishing an honour years at QUT, where I recently completed a dual degree in Computer Science and Environmental Science. My research is focused on using GEDI to measure canopy height at scale throughout Queensland regional ecosystems.</p>
-        </div>
-      </div>
-      <div class="side-content"></div>
-    </div>
-    <!-- END ABOUT -->
 
-    <!-- BEGIN EXPERIENCE 
-    <div class="row">
-      <div class="side-content"></div>
-      <div class="main-content">
-        <div class="content-header">
-          <a class="anchor" name="experience"></a>
-          <h2>Experience</h2>
-        </div>
-         CARD #1 
-        <div class="content-body">
-          <div class="card">
-            <div class="card-header">
-              <h4>Company <span class="job-title">Job Title</span></h4>
-            </div>
-            <div class="card-content">
-              <p>Nothing yet, hire me pls.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="side-content"></div>
-    </div>
-     END EXPERIENCE -->
+        <div id="contact" class="content-region hide">
+          <h2>Contact</h2>
+          <p>
+           Feel free to contact me through any of the following social accounts.
+          </p>
 
-    <!-- BEGIN EDUCATION -->
-    <div class="row white box-shadow">
-      <div class="side-content"></div>
-      <div class="main-content">
-        <div class="content-header">
-          <a class="anchor" name="education"></a>
-          <h2>Education</h2>
-        </div>
-        <div class="content-body">
+          <div class="jumbotron-social">
+            <ul class="ul-social">
+              <li class="li-social-links">
+                <a class="social" href="https://github.com/tim-devereux" target="_blank"><i class="fa fa-github"
+                    aria-hidden="true"></i></a>
+              </li>
+              <li class="li-social-links">
+                <a class="social" href="https://www.linkedin.com/in/timothy-devereux/" target="_blank"><i class="fa fa-linkedin"
+                    aria-hidden="true"></i></a>
+              </li>
+              <li class="li-social-links">
+                <a class="social" href="https://www.twitter.com/devereux_tim/" target="_blank"><i class="fa fa-twitter"
+                    aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
 
-          <!-- EDUCATION 1 -->
-          <div class="card">
-            <div class="card-header">
-              <h4>Queensland University of Technology<span class="job-title">Feb 2020 - Dec 2020</span></h4>
-            </div>
-            <div class="card-content">
-              <p>Bachelor of Science (Honours)</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h4>Queensland University of Technology<span class="job-title">Feb 2015 - Dec 2019</span></h4>
-            </div>
-            <div class="card-content">
-              <p>Bachelor of Science (Environmental) / Bachelor of Information Technology (Computer Science)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="side-content"></div>
-    </div>
-    <!-- END EDUCATION -->
-    
-    
-    <!-- BEGIN SKILLS -->
-    <div class="row white box-shadow">
-      <div class="side-content"></div>
-      <div class="main-content">
-        <div class="content-header">
-          <a class="anchor" name="skills"></a>
-          <h2>Skills</h2>
-        </div>
-        <div class="content-body">
-          <ul class="ul-skills">
-            <li class="li-skills">JavaScript</li>
-            <li class="li-skills">C/C++</li>
-            <li class="li-skills">Bash</li>
-            <li class="li-skills">Python</li>
-            <li class="li-skills">R</li>
-            <li class="li-skills">Linux</li>
-          </ul>
-        </div>
-      </div>
-      <div class="side-content"></div>
-    </div>
-    <!-- END SKILLS -->
 
-    <!-- BEGIN PROJECTS -->
-    <div class="row">
-      <div class="side-content-sm"></div>
-      <div class="main-content-lg">
-        <div class="content-header">
-          <a class="anchor" name="projects"></a>
-          <h2>Projects</h2>
         </div>
-        <div class="content-body">
-          <!-- CARD #1 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="/images/gedi.png" style="width:600px;height:450px;>
-            </div>
-            <div class="project-content">
-              <h4>Remote Sensing of Vegetation Structure with Orbital Lidar</h4>
-              <p></p>
-              <p></p>
-            </div>
-          </div>
-          <!-- CARD #2 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="/images/treeseg.png" style="width:600px;height:450px;>
-            </div>
-            <div class="project-content">
-              <h4>Automated Individual Tree Extraction from Terresrial Lidar Point Clouds</h4>
-              <p></p>
-              <p></p>
-            </div>
-          </div>
-          <!-- CARD #3 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="/images/weather_monitor.jpg" style="width:600px;height:450px;>
-            </div>
-            <div class="project-content">
-              <h4>Weather Monitor</h4>
-              <p>Weather monitor linked to a microcontroller which uploads data to Thinkspeak, a free IOT platfrom provided by MathWorks.</p>
-              <p>Temperature, humidity, windspeed, rainfall and baromatric pressure are ploted and displayed on a simple webpage.</p>
-              <a href="/weather/">Link to Project</a>
-              <a href="https://github.com/devereux-tim/weather_monitor">Github Repo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="side-content-sm"></div>
-    </div>
-    <!-- END PROJECTS -->
 
-    <!-- BEGIN FOOTER -->
-    <div class="footer">
-      <div class="side-content"></div>
-      <div class="main-content">
-        <div class="content-header">
-        </div>
-        <div class="footer-body">
-        </div>
       </div>
-      <div class="side-content"></div>
     </div>
-    <!-- END FOOTER -->
-
   </div>
+<!-- 
+  <footer>
+    Footer region
+  </footer> -->
+
+  <!-- Load additional JS scripts here -->
+  <script type="text/javascript" src="script.js"></script>
+
 </body>
 
 </html>
