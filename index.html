@@ -33,19 +33,26 @@
 <body>
 
   <header id="header">
-    <!-- <img src="logo.png"> -->
-    <h1>Tim Devereux</h1>
-    <h4>Environmental remote sensing and geospatial data analyst.</h4>
 
+
+    <div>
+      <p style="float: right;"><img src="images/profile.png" height="160px" width="140px"></p>
+      <br>
+      <h1>Tim Devereux</h1>
+      <h4>Environmental remote sensing. Geospatial data processing and analysis.</h4>
+    </div>
+    </div>
 
 
     <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
-    <ul class="main-menu">
+    <ul class="main-menu" id="menu">
       <li><a href="#home">home</a></li>
       <li><a href="#about">about</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
   </header>
+
+  
 
   <div id="container">
     <div class="inner">
@@ -54,82 +61,74 @@
         <div id="home" class="content-region hide">
 
 
-        <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
-          <b>
-            <h2>Education</h2>
-          </b>
-          <h4>Queensland University of Technology</h4>
-          <h5>Bachelor of Science (Honours) | 2020 - 2020</h5>
-          <h5>Bachelor of Science / Bachelor of Information Technology | 2015 - 2019</h5>
-        </div>
+          <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+            <b>
+              <h2>Education</h2>
+            </b>
+            <h4>Queensland University of Technology</h4>
+            <h5>Bachelor of Science (Honours) | 2020 - 2020</h5>
+            <h5>Bachelor of Science / Bachelor of Information Technology | 2015 - 2019</h5>
+          </div>
 
-        <br>
-
-        <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
-
-          <b>
-            <h2>Projects</h2>
-          </b>
-
-
+          <br>
 
           <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
 
+            <b>
+              <h2>Projects</h2>
+            </b>
 
+            <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
 
-          <b>
-            <h4>Remote Sensing of Vegetation Structure with Orbital Lidar</h4>
-          </b>
-          <img src="/images/gedi.png" style="width:450px;height:300px;"> 
-          <p>My honours research is centred on testing the efficacy of measuring vegetation structural metrics using novel orbital LiDAR waveforms and ultimately developing automated workflows to do so at massive scales. Lidar derived measurements are processed and compared with Queensland Government BioCondition assessment data in a range of regional ecosystems over the entire state using high performance computing. This research was successful in securing a competitive scholarship from the Queensland Resource Council's mine site rehabilitation fund.</p>
-          <a href="https://www.dropbox.com/s/wxjbp2k45yslgrr/Large%20Scale%20Assessment%20of%20Canopy%20Height%20in%20Queensland%20Regional%20Ecosystems%20using%20Orbital%20Lidar.pdf?dl=0">Link to Thesis</a> <br>
-          <a href="https://github.com/devereux-tim/gedi_veg_metrics">Github Repo</a>
+              <b>
+                <h4>Remote Sensing of Vegetation Structure with Orbital Lidar</h4>
+              </b>
+              <img src="/images/gedi.png" style="width:450px;height:300px;" class="center">
+              <p>My honours research was centred on testing the efficacy of measuring vegetation structural metrics using
+                novel orbital LiDAR waveforms and ultimately developing automated workflows to do so at massive scales.
+                Lidar derived measurements were processed and compared with Queensland Government BioCondition assessment
+                data in a range of regional ecosystems over the entire state using high performance computing. This
+                research was successful in securing a competitive scholarship from the Queensland Resource Council's
+                mine site rehabilitation fund.</p>
+              <a
+                href="https://www.dropbox.com/s/wxjbp2k45yslgrr/Large%20Scale%20Assessment%20of%20Canopy%20Height%20in%20Queensland%20Regional%20Ecosystems%20using%20Orbital%20Lidar.pdf?dl=0">Link
+                to Thesis</a> <br>
+              <a href="https://github.com/devereux-tim/gedi_veg_metrics">Github Repo</a>
+            </div>
+
+            <br>
+            <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+
+              <b>
+                <h4>Automatic individual tree extraction from terrestrial LiDAR point clouds.</h4>
+              </b>
+              <img src="/images/treeseg.png" style="width:450px;height:300px;" class="center">
+              <p>This research project involved the testing of new tree extraction algorithms on terrestrial LiDAR point
+                clouds obtained in two structurally contrasting forest plots. I was able to achieve segmentationof 81%
+                of trees present and also improved efficiency of the software by implementing parallelisation.The
+                results generated from this study help to define the limitations of a novel tree extraction
+                algorithmwithin varying forest types in the Australian setting.</p>
+              <a href="https://drive.google.com/file/d/1lCoFDpzEkaY8NMO526zgaXmbSJsLcx_l/view?usp=sharing">Link to
+                Manuscript</a> <br>
+            </div>
+            <br>
+
+            <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
+
+              <b>
+                <h4>IOT Weather Monitor</h4>
+              </b>
+              <img src="/images/weather_monitor.jpg" style="width:250px;height:250px;" ALIGN=”left” class="center">
+              <p>Weather sensors linked to a microcontroller which uploads data to Thinkspeak, a free IOT platfrom
+                provided by MathWorks using a script written in C. Temperature, humidity, windspeed, rainfall and baromatric pressure are retrieved and
+                displayed on a simple webpage using Chart.js. The sensors are powered by a small solar panel which stores energy in a 2500mAh LiPo battery. The C code was developed for optimal power efficency of the sensors and transmission of data to ensure uninterrupted function.</p>
+              <a href="/weather/">Link to Project</a> <br>
+              <a href="https://github.com/devereux-tim/weather_monitor">Github Repo</a>
+            </div>
+
+          </div>
+
         </div>
-
-
-
-
-        <br>
-        <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
-
-
-
-        <b>
-          <h4>Automatic individual tree extraction from terrestrial LiDAR point clouds.</h4>
-        </b>
-        <img src="/images/treeseg.png" style="width:450px;height:300px;"> 
-        <p>This  research  project  involved  the  testing  of  new  tree  extraction  algorithms  on  terrestrial  LiDAR point clouds obtained in two structurally contrasting forest plots.  I was able to achieve segmentationof 81% of trees present and also improved efficiency of the software by implementing parallelisation.The results generated from this study help to define the limitations of a novel tree extraction algorithmwithin varying forest types in the Australian setting.</p>
-        <a href="https://drive.google.com/file/d/1lCoFDpzEkaY8NMO526zgaXmbSJsLcx_l/view?usp=sharing">Link to Manuscript</a> <br>
-      </div>
-<br>
-
-      <div class="content-body" style="border:1px; border-style:solid; border-color:#white; padding: 1em;">
-
-        <b>
-          <h4>Weather Monitor</h4>
-        </b>
-        <img src="/images/weather_monitor.jpg" style="width:250px;height:250px;" ALIGN=”left”  >
-        <p>Weather monitor linked to a microcontroller which uploads data to Thinkspeak, a free IOT platfrom
-          provided by MathWorks. Temperature, humidity, windspeed, rainfall and baromatric pressure are ploted and displayed on a simple
-          webpage.</p>
-        <a href="/weather/">Link to Project</a> <br>
-        <a href="https://github.com/devereux-tim/weather_monitor">Github Repo</a>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-
-      </div>
 
 
 
@@ -152,26 +151,26 @@
 
         <div id="about" class="content-region hide">
           <p>
-            Still to come... 
+            Still to come...
           </p>
         </div>
 
         <div id="contact" class="content-region hide">
           <hj5>
-           Feel free to contact me through any of the following social accounts.
-          </h5>
+            Feel free to contact me through any of the following social accounts.
+            </h5>
 
-<br>
-<br>
-&nbsp;&nbsp; &nbsp; Github &nbsp;&nbsp; &nbsp; 
-                <a class="social" href="https://github.com/tim-devereux" target="_blank"><i class="fa fa-github"
-                    aria-hidden="true"></i></a> <br>
-                    &nbsp;&nbsp; &nbsp; Linkedin&nbsp;&nbsp; 
-                <a class="social" href="https://www.linkedin.com/in/timothy-devereux/" target="_blank"><i class="fa fa-linkedin"
-                    aria-hidden="true"></i></a> <br>
-                    &nbsp;&nbsp; &nbsp; Twitter&nbsp;&nbsp; &nbsp; 
-                <a class="social" href="https://www.twitter.com/devereux_tim/" target="_blank"><i class="fa fa-twitter"
-                    aria-hidden="true"></i></a>
+            <br>
+            <br>
+            &nbsp;&nbsp; &nbsp; Github &nbsp;&nbsp; &nbsp;
+            <a class="social" href="https://github.com/tim-devereux" target="_blank"><i class="fa fa-github"
+                aria-hidden="true"></i></a> <br>
+            &nbsp;&nbsp; &nbsp; Linkedin&nbsp;&nbsp;
+            <a class="social" href="https://www.linkedin.com/in/timothy-devereux/" target="_blank"><i
+                class="fa fa-linkedin" aria-hidden="true"></i></a> <br>
+            &nbsp;&nbsp; &nbsp; Twitter&nbsp;&nbsp; &nbsp;
+            <a class="social" href="https://www.twitter.com/devereux_tim/" target="_blank"><i class="fa fa-twitter"
+                aria-hidden="true"></i></a>
 
 
 
@@ -181,7 +180,7 @@
       </div>
     </div>
   </div>
-<!-- 
+  <!-- 
   <footer>
     Footer region
   </footer> -->
